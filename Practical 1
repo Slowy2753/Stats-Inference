@@ -1,0 +1,79 @@
+
+
+#Ex 1.3
+
+total <- 0
+for (i in 1:5){
+  total <- total + i^i
+}
+print(total)
+
+
+#Ex 2.2
+v1 <- c(2,4,6)
+v1.1 <- 2*1:3
+v2 <- 1:100
+v2.2 <- seq(1,100, by=2)
+vname <- c('Jonathan','James','Mullett')
+
+#Ex 3
+View(hospital)
+
+#Ex 4.2
+summary(hospital)
+
+#Ex 5.1
+plot(hospital$beds, hospital$discharges)
+
+#Ex 5.2
+hist(hospital$discharges, breaks=20)
+hist(hospital$beds, breaks=20)
+
+#Ex 5.3
+boxplot(hospital$discharges, hospital$beds, horizontal=T,
+        names=c('Hospital Discharges', 'Hospital Beds'), las=1)
+
+#Ex 5.4
+reg1<- subset(hospital, region==1)
+reg2<- subset(hospital, region==2)
+reg3<- subset(hospital, region==3)
+reg4<- subset(hospital, region==4)
+
+par(mfrow=c(2,2))
+plot(reg1$beds, reg1$discharges, col='red', pch=19)
+plot(reg2$beds, reg2$discharges, col='green', pch=19)
+plot(reg3$beds, reg3$discharges, col='orange', pch=19)
+plot(reg4$beds, reg4$discharges, col='blue', pch=19)
+
+par(mfrow=c(1))
+plot(reg1$beds, reg1$discharges, col='red', pch=19,
+     main='Hospital Beds and Discharges by Region',
+     ylab='Discharges', xlab='Beds')
+points(reg2$beds, reg2$discharges, col='green', pch=19)
+points(reg3$beds, reg3$discharges, col='orange', pch=19)
+points(reg4$beds, reg4$discharges, col='blue', pch=19)
+legend('bottomright', c('Reg1','Reg2','Reg3','Reg4'),
+       fill=c('red','green','orange','blue'))
+
+#Ex 6.1
+hist(movies$length, xlim=c(0,200), breaks=200)
+rug(movies$length)
+
+boxplot(movies$length)
+
+#Cure for Insomnia, The
+#Longest Most Meaningless Movie in the World, The
+
+#Movie lengths 5220 and 2880 (not sensible)
+
+Outlier <- subset(movies, movies$length>2879)
+#Not particularly popular
+
+
+#Ex 6.4
+movies.1 <- subset(movies, movies$length<181)
+hist(movies.1$length)
+
+
+#Ex 6,5
+hist(movies.1$length, breaks=190)
