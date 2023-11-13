@@ -68,3 +68,9 @@ curve(300*poisson_mle(x), from=0.1, to=12, add=T, col='red')
 abline(v=mle, col='red')
 abline(v=ci[1], col='blue')
 abline(v=ci[2], col='blue')
+
+
+curve(logLike(x), from=3.8, to=4)
+#yes log like looks quadratic near mle
+#means the assumption that the curver is gausian is reasonable
+
