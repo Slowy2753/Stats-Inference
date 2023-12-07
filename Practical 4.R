@@ -66,4 +66,30 @@ like<- like/sum(like)
 plot(lambdavals, cnjPrior, ylim=c(0,0.02), type='l', col='red')
 abline(v=3.5, col='red', lty=2)
 points(lambdavals, like, type='l', col='blue')
-abline(v=, col='blue', lty=2)
+abline(v=mean(volcano$Medium), col='blue', lty=2)
+
+#2.6
+postDirect <- like*cnjPrior
+postDirect <- postDirect/sum(postDirect)
+
+plot(lambdavals, cnjPrior, ylim=c(0,0.02), type='l', col='red')
+abline(v=3.5, col='red', lty=2)
+points(lambdavals, like, type='l', col='blue')
+abline(v=mean(volcano$Medium), col='blue', lty=2)
+points(lambdavals, postDirect, type='l', col='green')
+abline(v=, col='green', lty=2)
+
+#2.7
+aPost <- 1+sum(volcano$Medium)
+bPost <- 1+length(volcano$Medium)
+
+exactpost <- dgamma(lambdavals , shape= aPost,rate=bPost)
+exactpost <- exactpost/sum(exactpost)
+
+points(lambdavals, exactpost, type='l', col='purple')
+
+
+#2.8
+post_CI <-c(qgamma(0.025, shape=aPost, rate=bPost), qgamma(0.975, shape= aPost, rate=bPost))
+
+
