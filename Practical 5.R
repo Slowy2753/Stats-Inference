@@ -50,7 +50,7 @@ p1vals<- seq(from=0, to=5/6, length.out=100)
 tPowers<-sapply(p1vals, powerFun)
 plot(tPowers, p1vals, type='l')
 
-#3.5
+#3.5 (can be optimised but this also generates floating point error- should use cumulative func without for loop)
 power1 <- function(n){
   cv<-qbinom(0.95, n, 1/6)
   for(i in 0:n){
