@@ -63,8 +63,8 @@ power1 <- function(n){
 }
 
 
-#3.5
+#3.6/3.7
 ns <-1:2500
 plot(ns, sapply(ns, power1), type='l')
 
-#3.6
+#3.8
