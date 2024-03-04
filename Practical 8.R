@@ -64,3 +64,17 @@ replicate(10, abline(v=rollFUN_2(bp),col='blue'))
 bp <- c(1/6 + 0.04, 1/6, 1/6, 1/6, 1/6, 1/6 - 0.04)
 replicate(10, abline(v=rollFUN_2(bp),col='pink'))
 qchisq(0.95, df=5)
+
+
+#5.1
+Obs<-c(10,15,16,25,25,30)
+chisq.test(Obs)
+#this would be taken to be a biased die (98.7% conf)
+
+#5.2
+mat<-c(c(38,120,42),
+       c(232,357,73),
+       c(48,29,4),
+       c(15,34,8))
+chisq.test(mat)
+#definitly not independant
